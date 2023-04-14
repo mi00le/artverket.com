@@ -8,13 +8,20 @@ document.body.onload = () => {
             if (!menuOpen) {
                 menuBtn.classList.add("open");
                 boxShadow.classList.add("menu__box__shadow__enabled");
-                document.body.style.overflow = "hidden";
+                document.body.style.overflowY = "auto";
+                document.body.style.position = "fixed";
+                // document.body.style.position = "fixed";
+
+                document.body.style.width = "100%";
+
                 menuOpen = true;
             } else {
                 menuBtn.classList.remove("open");
                 boxShadow.classList.remove("menu__box__shadow__enabled");
-                document.body.style.overflow = "auto";
+                document.body.style.overflowY = "auto";
+                document.body.style.position = "static";
 
+                document.body.style.width = "100%";
                 menuOpen = false;
             }
         },
