@@ -16,10 +16,10 @@
 }
 
 .product__container > div > img {
-    max-width: clamp(10em, 20vw, 30em);
+    max-width: clamp(9em, 20vw, 30em);
 }
 
 .product__container > div > span {
-    font-size: 0.8em;
+    font-size: 0.7em;
     text-align: center;
 }

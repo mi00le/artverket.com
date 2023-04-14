@@ -81,8 +81,7 @@
 }
 
 .menu-container > ul > li {
-    /* padding-left: 1em; */
-    margin-top: 1.5em;
+    margin-top: 1em;
 }
 
 .menu-container > ul * {
@@ -90,7 +89,7 @@
 }
 
 .menu-container > ul > li > ul > li {
-    margin-top: 1.5em;
+    margin-top: 1em;
 }
 
 .menu-container__ul {

@@ -11,6 +11,7 @@ class Navigation {
             __portfolio: document.querySelector("#__portfolio"),
             __om: document.querySelector("#__om"),
             __kontakt: document.querySelector("#__kontakt"),
+            __logo: document.querySelector("#__logo"),
         };
     }
     init() {
@@ -85,6 +86,14 @@ class Navigation {
             "click",
             () => {
                 location.href = "./kontakt.html";
+            },
+            false
+        );
+
+        this.links.__logo.addEventListener(
+            "click",
+            () => {
+                location.href = "./index.html";
             },
             false
         );
