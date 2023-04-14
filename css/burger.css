@@ -117,12 +117,13 @@ button:hover {
     width: 100%;
     height: 100vh;
     position: absolute;
-    z-index: 2;
+    z-index: -999;
     opacity: 0.5;
     transition: opacity 3s ease-in-out;
 }
 
 .menu__box__shadow__enabled {
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.8);
     height: 999vh;
+    z-index: 2;
 }

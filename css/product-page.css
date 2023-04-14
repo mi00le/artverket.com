@@ -1,0 +1,32 @@
+.product__container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    top: 3.5em;
+    position: relative;
+    align-items: center;
+
+    height: calc(100vh - 3.5em); /* fixed smaller image */
+}
+#__product_image {
+    width: clamp(15em, 20vw, 30em);
+}
+
+.__next_image {
+    display: none;
+}
+
+#__right,
+#__left {
+    height: 2.5em;
+    fill: rgba(0, 0, 0, 0.5);
+}
+#__left:active,
+#__right:active {
+    fill: rgba(0, 0, 0, 1);
+}
+
+#__left:hover,
+#__right:hover {
+    fill: rgba(0, 0, 0, 1);
+}

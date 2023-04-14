@@ -8,9 +8,8 @@ document.body.onload = () => {
             if (!menuOpen) {
                 menuBtn.classList.add("open");
                 boxShadow.classList.add("menu__box__shadow__enabled");
-                document.body.style.overflowY = "auto";
-                document.body.style.position = "fixed";
-                // document.body.style.position = "fixed";
+                // document.body.style.overflowY = "auto";
+                // document.body.style.position = "static";
 
                 document.body.style.width = "100%";
 
@@ -18,8 +17,8 @@ document.body.onload = () => {
             } else {
                 menuBtn.classList.remove("open");
                 boxShadow.classList.remove("menu__box__shadow__enabled");
-                document.body.style.overflowY = "auto";
-                document.body.style.position = "static";
+                // document.body.style.overflowY = "auto";
+                // document.body.style.position = "static";
 
                 document.body.style.width = "100%";
                 menuOpen = false;
@@ -31,15 +30,17 @@ document.body.onload = () => {
 
 document.querySelector("#services__dropdown").addEventListener(
     "click",
-    () => {
+    (e) => {
         let items = document.querySelector(".services__items");
         let toggle = items.getAttribute("toggle");
         if (toggle == "false") {
             items.style.display = "block";
             items.setAttribute("toggle", true);
+            e.target.style.fontWeight = "bold";
         } else {
             items.style.display = "none";
             items.setAttribute("toggle", false);
+            e.target.style.fontWeight = "normal";
         }
     },
     false
