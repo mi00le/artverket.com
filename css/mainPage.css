@@ -1,0 +1,9 @@
+.main__image {
+    position: relative;
+    width: 100%;
+    top: 3.5em;
+}
+
+.main__image > img {
+    width: 100%;
+}

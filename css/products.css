@@ -1,0 +1,25 @@
+.product__container {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    row-gap: 2em;
+    column-gap: 1em;
+    justify-content: center;
+    top: 3.5em;
+    position: relative;
+}
+.product__container > div {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1em;
+}
+
+.product__container > div > img {
+    max-width: clamp(10em, 20vw, 30em);
+}
+
+.product__container > div > span {
+    font-size: 0.8em;
+    text-align: center;
+}
