@@ -8,19 +8,26 @@ document.body.onload = () => {
             if (!menuOpen) {
                 menuBtn.classList.add("open");
                 boxShadow.classList.add("menu__box__shadow__enabled");
-                // document.body.style.overflowY = "auto";
-                // document.body.style.position = "static";
+                document.body.style.overflowY = "hidden";
 
-                document.body.style.width = "100%";
+                //handle click on box shadow
+                document.querySelector(".menu__box__shadow__enabled").addEventListener(
+                    "click",
+                    (e) => {
+                        menuOpen = false;
+                        menuBtn.classList.remove("open");
+                        boxShadow.classList.remove("menu__box__shadow__enabled");
+                        document.body.style.overflowY = "auto";
+                    },
+                    false
+                );
 
                 menuOpen = true;
             } else {
                 menuBtn.classList.remove("open");
                 boxShadow.classList.remove("menu__box__shadow__enabled");
-                // document.body.style.overflowY = "auto";
-                // document.body.style.position = "static";
+                document.body.style.overflowY = "scroll";
 
-                document.body.style.width = "100%";
                 menuOpen = false;
             }
         },

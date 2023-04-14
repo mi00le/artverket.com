@@ -5,20 +5,20 @@
     top: 3.5em;
     position: relative;
     align-items: center;
-
-    height: calc(100vh - 3.5em); /* fixed smaller image */
+    height: calc(100vh - 8em);
 }
-#__product_image {
-    width: clamp(15em, 20vw, 30em);
-}
-
-.__next_image {
-    display: none;
+.__product_image_container {
+    background-image: url("../bilder/placeholder.jpg");
+    width: clamp(100px, 100vw, 900px);
+    height: clamp(100px, 100vh, 850px);
+    background-size: cover;
+    background-position: 50% 100%;
 }
 
 #__right,
 #__left {
     height: 2.5em;
+    flex-shrink: 5;
     fill: rgba(0, 0, 0, 0.5);
 }
 #__left:active,
