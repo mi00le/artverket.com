@@ -9,10 +9,10 @@
 }
 .__product_image_container {
     background-image: url("../bilder/placeholder.jpg");
-    width: clamp(100px, 100vw, 900px);
-    height: clamp(100px, 100vh, 850px);
+    width: clamp(100px, 100vw, 1920px);
+    height: clamp(100px, 90vh, 850px);
     background-size: cover;
-    background-position: 50% 100%;
+    background-position: 50% 65%;
 }
 
 #__right,
