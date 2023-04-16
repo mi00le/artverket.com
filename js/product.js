@@ -55,7 +55,7 @@ class Product {
     getDataFromStorage(src) {
         let _src = localStorage.getItem("current-product-to-show");
         if (_src !== null) {
-            this.imgSrc = _src.replace(/^bilder\//, "");
+            this.imgSrc = _src.replace(/^bilder\/preimages\//, "");
             this.__product_image_container.style.backgroundImage = `url('${_src}')`;
         } else {
             location.href = "./index.html";

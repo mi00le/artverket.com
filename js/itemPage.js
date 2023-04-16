@@ -11,8 +11,8 @@ class ItemPage {
     addClickEvent() {
         for (let i of this.product__container.children) {
             i.children[0].addEventListener("click", (e) => {
-                this.imgSrc = e.target.getAttribute("data-src");
-                this.saveToStorage(this.imgSrc);
+                this.imgSrc = e.target.getAttribute("alt");
+                this.saveToStorage(`bilder/preimages/${this.imgSrc}`);
             });
         }
     }
