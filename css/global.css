@@ -6,6 +6,7 @@
 * {
     font-family: "proxima_nova";
     letter-spacing: 2px;
+    user-select: none;
 }
 
 body {

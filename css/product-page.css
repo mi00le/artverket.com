@@ -12,10 +12,10 @@
 }
 .__product_image_container {
     background-image: url("../bilder/placeholder.jpg");
-    width: clamp(100px, 100vw, 1920px);
-    height: clamp(100px, 90vh, 20em);
+    width: clamp(20em, 40vw, 70em);
+    height: clamp(20em, 80vh, 70em);
     background-size: cover;
-    background-position: 50% 75%;
+    background-position: 50% 50%;
 }
 
 .__product_image_container > div {
@@ -61,44 +61,23 @@
     font-size: 0.8em;
 }
 
+.__arrow_container {
+    width: 2.5em;
+    height: 2.5em;
+}
+
 #__right,
 #__left {
-    height: 2.5em;
-    flex-shrink: 5;
+    height: 100%;
+    width: 100%;
     fill: rgba(0, 0, 0, 0.5);
-}
-#__left:active,
-#__right:active {
-    fill: rgba(0, 0, 0, 1);
 }
 
 #__left:hover,
-#__right:hover {
+#__right:hover,
+#__left:active,
+#__right:active {
     fill: rgba(0, 0, 0, 1);
-}
-
-@media only screen and (min-width: 600px) {
-    .__product_image_container {
-        height: clamp(100px, 90vh, 40em);
-        width: clamp(100px, 100vw, 170em);
-    }
-    #__right,
-    #__left {
-        flex-shrink: 3;
-    }
-}
-
-@media only screen and (min-width: 1000px) {
-    .__product_image_container {
-        height: clamp(100px, 90vh, 80em);
-        width: clamp(100px, 100vw, 170em);
-        background-position: 50% 77%;
-    }
-
-    #__right,
-    #__left {
-        flex-shrink: 1;
-    }
 }
 
 .footer__content {

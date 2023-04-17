@@ -6,6 +6,7 @@ class Product {
 
         this.imgSrc = "";
         this.count = 0;
+        this.loadedImages = [];
         this.imageSets = {
             "Artverket_FP-2.jpg": ["Artverket_FP-2.jpg", "Artverket_FP-3.jpg", "Artverket_FP-4.jpg", "Artverket_FP-5.jpg", "Artverket_FP-1.jpg"],
             "Artverket_FP-7.jpg": ["Artverket_FP-7.jpg", "Artverket_FP-8.jpg", "Artverket_FP-9.jpg", "Artverket_FP-10.jpg", "Artverket_FP-6.jpg"],
@@ -57,9 +58,23 @@ class Product {
         if (_src !== null) {
             this.imgSrc = _src.replace(/^bilder\/preimages\//, "");
             this.__product_image_container.style.backgroundImage = `url('${_src}')`;
+            this.loadAllImages();
         } else {
             location.href = "./index.html";
         }
+    }
+    async loadAllImages() {
+        const promises = [];
+        for (let i = 0; i < this.imageSets[this.imgSrc].length; i++) {
+            const img = new Image();
+            const promise = new Promise((resolve) => {
+                img.onload = () => resolve();
+            });
+            img.src = `bilder/${this.imageSets[this.imgSrc][i]}`;
+            this.loadedImages.push(img);
+            promises.push(promise);
+        }
+        await Promise.all(promises);
     }
 
     addEvents() {
@@ -80,26 +95,25 @@ class Product {
     }
 
     imageScroll(val) {
-        if (this.imageSets[this.imgSrc] !== undefined) {
-            let len = this.imageSets[this.imgSrc].length - 1 || undefined;
-
+        if (this.loadedImages !== undefined) {
+            let len = this.loadedImages.length - 1 || undefined;
             if (len) {
                 if (val > 0) {
                     if (this.count >= len) {
                         this.count = 0;
                     } else {
-                        this.imageSets[this.imgSrc][this.count];
+                        this.loadedImages[this.count];
                         this.count++;
                     }
-                    this.__product_image_container.style.backgroundImage = `url('./bilder/${this.imageSets[this.imgSrc][this.count]}')`;
+                    this.__product_image_container.style.backgroundImage = `url('${this.loadedImages[this.count].src}')`;
                 } else {
                     if (this.count <= 0) {
                         this.count = len;
                     } else {
-                        this.imageSets[this.imgSrc][this.count];
+                        this.loadedImages[this.count];
                         this.count--;
                     }
-                    this.__product_image_container.style.backgroundImage = `url('./bilder/${this.imageSets[this.imgSrc][this.count]}')`;
+                    this.__product_image_container.style.backgroundImage = `url('${this.loadedImages[this.count].src}')`;
                 }
             }
         }
