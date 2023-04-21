@@ -3,10 +3,12 @@ class Product {
         this.__product_image_container = document.querySelector(".__product_image_container");
         this.__left = document.querySelector("#__left");
         this.__right = document.querySelector("#__right");
+        this.__product_info_container = document.querySelector(".__product_info_container");
 
         this.imgSrc = "";
         this.count = 0;
         this.loadedImages = [];
+        this.animationFrameId = null;
         this.imageSets = {
             "Artverket_FP-2.jpg": ["Artverket_FP-2.jpg", "Artverket_FP-3.jpg", "Artverket_FP-4.jpg", "Artverket_FP-5.jpg", "Artverket_FP-1.jpg"],
             "Artverket_FP-7.jpg": ["Artverket_FP-7.jpg", "Artverket_FP-8.jpg", "Artverket_FP-9.jpg", "Artverket_FP-10.jpg", "Artverket_FP-6.jpg"],
@@ -51,13 +53,14 @@ class Product {
     init() {
         this.getDataFromStorage();
         this.addEvents();
+        requestAnimationFrame(() => this.changeSize());
     }
 
     getDataFromStorage(src) {
         let _src = localStorage.getItem("current-product-to-show");
         if (_src !== null) {
             this.imgSrc = _src.replace(/^bilder\/preimages\//, "");
-            this.__product_image_container.style.backgroundImage = `url('${_src}')`;
+            this.__product_image_container.src = _src;
             this.loadAllImages();
         } else {
             location.href = "./index.html";
@@ -105,7 +108,7 @@ class Product {
                         this.loadedImages[this.count];
                         this.count++;
                     }
-                    this.__product_image_container.style.backgroundImage = `url('${this.loadedImages[this.count].src}')`;
+                    this.__product_image_container.src = this.loadedImages[this.count].src;
                 } else {
                     if (this.count <= 0) {
                         this.count = len;
@@ -113,10 +116,23 @@ class Product {
                         this.loadedImages[this.count];
                         this.count--;
                     }
-                    this.__product_image_container.style.backgroundImage = `url('${this.loadedImages[this.count].src}')`;
+                    this.__product_image_container.src = this.loadedImages[this.count].src;
                 }
             }
         }
+    }
+
+    changeSize() {
+        // Request the animation frame
+        // if (this.animationFrameId === null) {
+        this.animationFrameId = requestAnimationFrame(() => {
+            // console.log("hej");
+            this.__product_info_container.style.width = this.__product_image_container.width + "px";
+            this.__product_info_container.style.paddingTop = `${this.__product_image_container.height / 2 - 160}px `;
+
+            this.changeSize();
+        });
+        // }
     }
 }
 

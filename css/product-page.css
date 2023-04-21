@@ -1,6 +1,16 @@
 :root {
     --p-span-font-size: 0.8em;
 }
+
+.__main_product_content {
+    display: flex;
+    flex-direction: column;
+    /* row-gap: 1em; */
+    align-items: center;
+    position: relative;
+    padding-top: 12em;
+}
+
 .product__container {
     display: flex;
     flex-direction: row;
@@ -8,25 +18,14 @@
     top: 3.5em;
     position: relative;
     align-items: center;
-    height: calc(100vh - 8em);
+    /* height: calc(100vh - 3em); */
+    height: clamp(24em, 44vh, 32em);
 }
+
 .__product_image_container {
-    background-image: url("../bilder/placeholder.jpg");
-    width: clamp(20em, 40vw, 70em);
-    height: clamp(20em, 80vh, 70em);
-    background-size: cover;
-    background-position: 50% 50%;
+    width: clamp(10em, 80vw, 40em);
 }
-
-.__product_image_container > div {
-    display: flex;
-    flex-direction: column;
-    justify-content: end;
-    position: relative;
-    top: 100%;
-}
-
-.__product_image_container > div > span {
+.__product_flex_container > div > span:nth-child(1) {
     font-size: 0.7em;
     color: rgba(0, 0, 0, 0.4);
     letter-spacing: normal;
@@ -62,8 +61,8 @@
 }
 
 .__arrow_container {
-    width: 2.5em;
-    height: 2.5em;
+    width: 1.5em;
+    height: 1.5em;
 }
 
 #__right,
